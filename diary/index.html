@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>다이어리 꾸미기 — 진짜 스티커처럼, 폰으로 다꾸</title>
+<meta name="description" content="스티커를 떼어 붙이고, 마테를 쭉 늘이고, 사진과 영상을 오늘의 한 페이지로. 다이어리 꾸미기 앱 다운로드" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="다이어리 꾸미기 — 진짜 스티커처럼, 폰으로 다꾸" />
+<meta property="og:description" content="떼고, 붙이고, 마테는 쭉 ✧ 앱 다운로드하기" />
+<meta property="og:image" content="appicon.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="appicon.png" />
+<style>
+:root{
+  --paper:#fbf6ec; --ink:#3a2f2a; --sub:#8a7a70;
+  --pink:#ff5c93; --pink-d:#e2447a; --mint:#a8ddc8; --yellow:#fff3a3; --lav:#d9ccff;
+  --line:#e8dccb;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif;
+  background:#efe4d6;
+  background-image:radial-gradient(#e3d3bf 1px, transparent 1.2px);
+  background-size:18px 18px;
+  color:var(--ink);
+  padding:22px 14px 34px;
+  display:flex;justify-content:center;
+}
+.book{
+  width:100%;max-width:520px;position:relative;
+  background:var(--paper);
+  background-image:radial-gradient(#e6d9c6 1.1px, transparent 1.3px);
+  background-size:16px 16px;
+  border-radius:16px;
+  box-shadow:0 18px 40px rgba(90,60,40,.18), 0 2px 0 #e6d9c6;
+  padding:34px 22px 26px;
+}
+.book:before{ /* 스프링 구멍 */
+  content:"";position:absolute;left:14px;top:22px;bottom:22px;width:6px;
+  background:repeating-linear-gradient(#cdbfa9 0 10px, transparent 10px 28px);
+  border-radius:3px;opacity:.7;
+}
+.tape{
+  position:absolute;height:26px;width:118px;opacity:.9;
+  background:repeating-linear-gradient(135deg,var(--mint) 0 8px,#c7ebdc 8px 16px);
+  box-shadow:0 1px 2px rgba(0,0,0,.08);
+}
+.tape.tl{left:50%;top:-11px;transform:translateX(-50%) rotate(-3deg)}
+.tape.br{right:-34px;bottom:110px;transform:rotate(-70deg);background:repeating-linear-gradient(135deg,var(--lav) 0 8px,#e8e0ff 8px 16px);width:96px}
+
+.hero{display:flex;align-items:center;gap:16px;margin:4px 0 10px}
+.hero img{
+  width:92px;height:92px;border-radius:22px;flex:none;
+  box-shadow:0 6px 14px rgba(0,0,0,.14);transform:rotate(-4deg);
+  border:3px solid #fff;
+}
+.h1{font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-.5px}
+.h1 small{display:block;font-size:13px;color:var(--pink);font-weight:700;margin-bottom:4px;letter-spacing:1px}
+.h2{font-size:14px;color:var(--sub);margin-top:6px;line-height:1.5}
+
+.memo{
+  background:var(--yellow);padding:12px 14px;margin:16px 0 6px;
+  transform:rotate(-1.2deg);box-shadow:2px 3px 0 rgba(0,0,0,.06);
+  font-size:14px;line-height:1.7;position:relative;
+}
+.memo:after{content:"📌";position:absolute;right:10px;top:-12px;font-size:20px}
+
+.btns{display:flex;flex-direction:column;gap:12px;margin:22px 0 8px}
+.dl{
+  display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);
+  background:#fff;border:2px dashed var(--line);border-radius:18px;padding:14px 16px;
+  box-shadow:0 4px 0 #ecdfcc;position:relative;transition:transform .08s;
+}
+.dl:active{transform:translateY(3px);box-shadow:0 1px 0 #ecdfcc}
+.dl .em{width:46px;height:46px;border-radius:14px;flex:none;display:flex;align-items:center;justify-content:center}
+.dl.ios .em{background:#111}.dl.and .em{background:#e9f8ef}
+.dl .em svg{width:26px;height:26px}
+.dl .lab{flex:1;line-height:1.3}
+.dl .lab b{display:block;font-size:17px;font-weight:800}
+.dl .lab s{display:block;font-size:12.5px;color:var(--sub);text-decoration:none;margin-top:2px}
+.dl .arw{
+  background:var(--pink);color:#fff;font-size:12px;font-weight:800;
+  padding:7px 12px;border-radius:999px;flex:none;
+}
+.stk{position:absolute;font-size:22px;transform:rotate(12deg);right:-8px;top:-14px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.15))}
+
+.sect{font-size:14px;font-weight:800;color:var(--pink-d);margin:22px 0 10px;display:flex;align-items:center;gap:6px}
+.sect:after{content:"";flex:1;border-top:2px dashed var(--line)}
+.shots{
+  display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;padding:6px 2px 10px;
+}
+.shots::-webkit-scrollbar{display:none}
+.shot{flex:none;width:150px;scroll-snap-align:center;text-align:center}
+.shot img{
+  width:100%;height:auto;display:block;border-radius:14px;
+  border:3px solid #fff;box-shadow:0 5px 12px rgba(0,0,0,.12);background:#fff;
+}
+.shot span{display:block;font-size:12px;color:var(--sub);margin-top:7px}
+
+.info{
+  margin-top:18px;background:#fff;border-radius:14px;padding:14px 16px;
+  border:2px solid var(--line);font-size:13px;line-height:1.75;color:#5a4d46;
+}
+.info h3{margin:0 0 4px;font-size:15px;color:var(--ink)}
+.foot{margin-top:18px;text-align:center;font-size:11.5px;color:#b3a496;letter-spacing:.5px}
+.foot a{color:#b3a496}
+@media (max-width:400px){
+  body{padding:14px 10px 26px}
+  .book{padding:30px 16px 22px}
+  .hero img{width:78px;height:78px}
+  .h1{font-size:23px}
+  .shot{width:136px}
+}
+</style>
+</head>
+<body>
+<div class="book">
+  <span class="tape tl"></span>
+  <span class="tape br"></span>
+
+  <div class="hero">
+    <img src="appicon.png" alt="다이어리 꾸미기 앱 아이콘" />
+    <div>
+      <div class="h1"><small>DIARY DECO APP ✧</small>다이어리 꾸미기</div>
+      <div class="h2">진짜 스티커처럼, 폰으로 다꾸<br />떼고, 붙이고, 마테는 쭉</div>
+    </div>
+  </div>
+
+  <div class="memo">
+    스티커를 손끝으로 떼어 붙이고, 마스킹테이프를 원하는 만큼 늘여 보세요.<br />
+    사진·영상은 폴라로이드 프레임에, 오늘 하루는 한 페이지에 ✨
+  </div>
+
+  <div class="btns">
+    <a class="dl ios" id="btn-ios" href="#" rel="noopener">
+      <span class="em"><svg viewBox="0 0 384 512" fill="#fff"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></span>
+      <span class="lab"><b>iPhone · iPad</b><s>App Store에서 받기</s></span>
+      <span class="arw">다운로드</span>
+      <span class="stk">🧸</span>
+    </a>
+    <a class="dl and" id="btn-and" href="#" rel="noopener">
+      <span class="em"><svg viewBox="0 0 576 512" fill="#3ddc84"><path d="M420.6 301.9a24 24 0 1 1 24-24 24 24 0 0 1 -24 24m-265.1 0a24 24 0 1 1 24-24 24 24 0 0 1 -24 24m273.7-144.5 47.9-83a10 10 0 1 0 -17.3-10h0l-48.5 84.1a301.3 301.3 0 0 0 -246.6 0L116.2 64.5a10 10 0 1 0 -17.3 10h0l47.9 83C64.5 202.2 8.2 285.6 0 384H576c-8.2-98.4-64.5-181.8-146.9-226.6"/></svg></span>
+      <span class="lab"><b>Android</b><s>Google Play에서 받기</s></span>
+      <span class="arw">다운로드</span>
+      <span class="stk">🍓</span>
+    </a>
+  </div>
+
+  <div class="sect">📖 미리보기</div>
+  <div class="shots">
+    <div class="shot"><img src="shot1.jpg" alt="진짜 스티커처럼" /><span>진짜 스티커처럼</span></div>
+    <div class="shot"><img src="shot2.jpg" alt="마테·이펙트 펜" loading="lazy" /><span>마테 · 이펙트 펜</span></div>
+    <div class="shot"><img src="shot3.jpg" alt="다꾸 피드" loading="lazy" /><span>다꾸 피드</span></div>
+    <div class="shot"><img src="shot4.jpg" alt="캘린더" loading="lazy" /><span>캘린더</span></div>
+    <div class="shot"><img src="shot5.jpg" alt="다꾸 상점" loading="lazy" /><span>다꾸 상점</span></div>
+    <div class="shot"><img src="shot6.jpg" alt="내 다이어리" loading="lazy" /><span>내 다이어리</span></div>
+  </div>
+
+  <div class="info">
+    <h3>다이어리 꾸미기는?</h3>
+    반짝이·네온·롤러도장 이펙트 펜, 움직이는 스티커, 폴라로이드·탑로더 프레임까지.<br />
+    완성한 페이지는 전체 공개·1촌 공개·비공개 중 골라서 공유할 수 있어요.
+  </div>
+
+  <div class="foot">© MAYACREW · <a href="https://d1ddugy96nk5en.cloudfront.net/legal/privacy.html" rel="noopener">개인정보처리방침</a></div>
+</div>
+
+<script>
+const CONFIG = { iosAppId:'6800596085', androidPkg:'com.juno.nedabo', appleProviderId:'', defaultSource:'instagram', campaign:'bio_link' };
+const src = (new URLSearchParams(location.search).get('src') || CONFIG.defaultSource).replace(/[^a-z0-9_-]/gi,'').slice(0,20) || 'direct';
+function iosUrl(){ const p=new URLSearchParams(); if(CONFIG.appleProviderId)p.set('pt',CONFIG.appleProviderId); p.set('ct',(src+'_'+CONFIG.campaign).slice(0,40)); p.set('mt','8'); return `https://apps.apple.com/kr/app/id${CONFIG.iosAppId}?${p}`; }
+function andUrl(){ const referrer=`utm_source=${src}&utm_medium=bio&utm_campaign=${CONFIG.campaign}`; return `https://play.google.com/store/apps/details?id=${CONFIG.androidPkg}&referrer=${encodeURIComponent(referrer)}`; }
+document.getElementById('btn-ios').href = iosUrl();
+document.getElementById('btn-and').href = andUrl();
+</script>
+</body>
+</html>
