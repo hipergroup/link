@@ -34,6 +34,8 @@ body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothi
 .vid{flex:none;width:200px;scroll-snap-align:center}
 .vid video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;border-radius:18px;background:#000;border:3px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,.14)}
 .vid span{display:block;font-size:12px;color:var(--sub);margin-top:7px;text-align:center}
+.vid{position:relative}
+.snd{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;font-weight:700;padding:5px 9px;border-radius:999px;pointer-events:none}
 .btns{display:flex;flex-direction:column;gap:12px;margin:18px 0 6px;position:relative}
 .dl{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:20px;padding:14px 16px;box-shadow:0 5px 0 #f3d4e1;position:relative;transition:transform .08s}
 .dl:active{transform:translateY(3px);box-shadow:0 1px 0 #f3d4e1}
@@ -72,11 +74,10 @@ body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothi
     </div>
   </div>
 
-  <div class="sect">🎬 이런 느낌이에요</div>
+  <div class="sect">🎬 이런 느낌이에요 <em style="font-weight:600;color:var(--sub);font-style:normal;font-size:12px">· 영상을 누르면 소리가 나요</em></div>
   <div class="vids">
-    <div class="vid"><video src="ad-asmr.mp4" poster="poster-asmr.jpg" autoplay muted loop playsinline preload="metadata"></video><span>누르고 · 늘이고 · 터뜨리기</span></div>
-    <div class="vid"><video src="ad-unwrap.mp4" poster="poster-unwrap.jpg" muted loop playsinline preload="metadata"></video><span>봉지 뜯는 순간</span></div>
-    <div class="vid"><video src="ad-paw.mp4" poster="poster-paw.jpg" muted loop playsinline preload="metadata"></video><span>고양이 발바닥 말랑이</span></div>
+    <div class="vid"><video src="ad-asmr.mp4" poster="poster-asmr.jpg" autoplay muted loop playsinline preload="metadata"></video><b class="snd">🔇 소리 켜기</b><span>누르고 · 늘이고 · 터뜨리기</span></div>
+    <div class="vid"><video src="ad-paw.mp4" poster="poster-paw.jpg" muted loop playsinline preload="metadata"></video><b class="snd">🔇 소리 켜기</b><span>고양이 발바닥 말랑이</span></div>
   </div>
 
   <div class="btns">
@@ -129,6 +130,8 @@ document.getElementById('btn-and').href = andUrl();
 const vids=[...document.querySelectorAll('.vid video')];
 const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) e.target.play().catch(()=>{}); else e.target.pause(); }),{threshold:.6});
 vids.forEach(v=>io.observe(v));
+// 탭하면 그 영상만 소리 켜기 (다른 영상은 끈다)
+vids.forEach(v=>{ v.addEventListener('click',()=>{ const on=v.muted; vids.forEach(o=>{o.muted=true; o.parentElement.querySelector('.snd').textContent='🔇 소리 켜기';}); if(on){ v.muted=false; v.parentElement.querySelector('.snd').textContent='🔊 소리 끄기'; v.play().catch(()=>{}); } }); });
 </script>
 </body>
 </html>
