@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>말랑볼 — 만지고 터뜨리는 힐링 앱</title>
+<meta name="description" content="말랑이 · 왁뿌볼 · 슬라임을 손끝으로. 누르고, 늘이고, 터뜨리는 ASMR 힐링 앱 말랑볼 다운로드" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="말랑볼 — 만지고 터뜨리는 힐링 앱 🫧" />
+<meta property="og:description" content="말랑이 · 왁뿌볼 · 슬라임을 손끝으로 ✧ 앱 다운로드하기" />
+<meta property="og:image" content="appicon.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="appicon.png" />
+<style>
+:root{ --bg:#fde7ee; --paper:#fff7fa; --ink:#3b2a36; --sub:#8e7585; --pink:#e2578a; --pink-d:#c22fa5; --lav:#e9dcff; --mint:#d6f3ea; --line:#f1d6e2; }
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothic',sans-serif;color:var(--ink);
+  background:var(--bg);background-image:radial-gradient(circle at 20% 10%,#fff1f5 0,transparent 40%),radial-gradient(circle at 80% 90%,#ffe3ef 0,transparent 45%);
+  padding:22px 14px 34px;display:flex;justify-content:center}
+.card{width:100%;max-width:520px;position:relative;background:var(--paper);border-radius:28px;box-shadow:0 18px 44px rgba(194,47,165,.13),0 2px 0 #f5dbe6;padding:30px 22px 26px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.55;pointer-events:none}
+.blob.a{width:140px;height:140px;background:#ffd1e1;right:-40px;top:-40px}
+.blob.b{width:110px;height:110px;background:var(--lav);left:-36px;bottom:120px}
+.hero{display:flex;align-items:center;gap:16px;margin:2px 0 12px;position:relative}
+.hero img{width:92px;height:92px;border-radius:24px;flex:none;box-shadow:0 8px 18px rgba(226,87,138,.28)}
+.h1{font-size:27px;font-weight:900;letter-spacing:-.5px;line-height:1.15}
+.h1 small{display:block;font-size:12.5px;color:var(--pink);font-weight:800;margin-bottom:5px;letter-spacing:1.5px}
+.h2{font-size:14px;color:var(--sub);margin-top:6px;line-height:1.5}
+.sect{font-size:14px;font-weight:800;color:var(--pink-d);margin:22px 0 10px;display:flex;align-items:center;gap:6px;position:relative}
+.sect:after{content:"";flex:1;border-top:2px dashed var(--line)}
+.vids{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px 10px;position:relative}
+.vids::-webkit-scrollbar{display:none}
+.vid{flex:none;width:200px;scroll-snap-align:center}
+.vid video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;border-radius:18px;background:#000;border:3px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,.14)}
+.vid span{display:block;font-size:12px;color:var(--sub);margin-top:7px;text-align:center}
+.btns{display:flex;flex-direction:column;gap:12px;margin:18px 0 6px;position:relative}
+.dl{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:20px;padding:14px 16px;box-shadow:0 5px 0 #f3d4e1;position:relative;transition:transform .08s}
+.dl:active{transform:translateY(3px);box-shadow:0 1px 0 #f3d4e1}
+.dl .em{width:46px;height:46px;border-radius:14px;flex:none;display:flex;align-items:center;justify-content:center}
+.dl.ios .em{background:#111}.dl.and .em{background:#e9f8ef}
+.dl .em svg{width:26px;height:26px}
+.dl .lab{flex:1;line-height:1.3}
+.dl .lab b{display:block;font-size:17px;font-weight:800}
+.dl .lab s{display:block;font-size:12.5px;color:var(--sub);text-decoration:none;margin-top:2px}
+.dl .arw{background:var(--pink);color:#fff;font-size:12px;font-weight:800;padding:7px 12px;border-radius:999px;flex:none}
+.stk{position:absolute;font-size:22px;transform:rotate(12deg);right:-8px;top:-14px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.15))}
+.shots{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:6px 2px 10px}
+.shots::-webkit-scrollbar{display:none}
+.shot{flex:none;width:150px;scroll-snap-align:center;text-align:center}
+.shot img{width:100%;height:auto;display:block;border-radius:16px;border:3px solid #fff;box-shadow:0 5px 12px rgba(0,0,0,.12);background:#fff}
+.shot span{display:block;font-size:12px;color:var(--sub);margin-top:7px}
+.gift{margin-top:18px;background:linear-gradient(135deg,#fff4d6,#ffe9f1);border-radius:18px;padding:14px 16px;border:2px solid #ffd9a8;font-size:13.5px;line-height:1.75;position:relative}
+.gift h3{margin:0 0 4px;font-size:15px}
+.gift code{background:#fff;border:1.5px solid #f1c27d;border-radius:8px;padding:1px 7px;font-weight:800;letter-spacing:.12em;font-family:ui-monospace,Menlo,monospace}
+.info{margin-top:14px;background:#fff;border-radius:16px;padding:14px 16px;border:2px solid var(--line);font-size:13px;line-height:1.75;color:#5f4a56}
+.info h3{margin:0 0 4px;font-size:15px;color:var(--ink)}
+.foot{margin-top:18px;text-align:center;font-size:11.5px;color:#c1a3b2;letter-spacing:.5px}
+.foot a{color:#c1a3b2}
+@media (max-width:400px){body{padding:14px 10px 26px}.card{padding:26px 16px 22px}.hero img{width:78px;height:78px}.h1{font-size:23px}.shot{width:136px}.vid{width:180px}}
+</style>
+</head>
+<body>
+<div class="card">
+  <span class="blob a"></span><span class="blob b"></span>
+
+  <div class="hero">
+    <img src="appicon.png" alt="말랑볼 앱 아이콘" />
+    <div>
+      <div class="h1"><small>HEALING ASMR APP ✧</small>말랑볼</div>
+      <div class="h2">만지고 터뜨리는 힐링 앱 🫧<br />말랑이 · 왁뿌볼 · 슬라임을 손끝으로</div>
+    </div>
+  </div>
+
+  <div class="sect">🎬 이런 느낌이에요</div>
+  <div class="vids">
+    <div class="vid"><video src="ad-asmr.mp4" poster="poster-asmr.jpg" autoplay muted loop playsinline preload="metadata"></video><span>누르고 · 늘이고 · 터뜨리기</span></div>
+    <div class="vid"><video src="ad-paw.mp4" poster="poster-paw.jpg" muted loop playsinline preload="metadata"></video><span>고양이 발바닥 말랑이</span></div>
+  </div>
+
+  <div class="btns">
+    <a class="dl ios" id="btn-ios" href="#" rel="noopener">
+      <span class="em"><svg viewBox="0 0 384 512" fill="#fff"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></span>
+      <span class="lab"><b>iPhone · iPad</b><s>App Store에서 받기</s></span>
+      <span class="arw">다운로드</span>
+      <span class="stk">🫧</span>
+    </a>
+    <a class="dl and" id="btn-and" href="#" rel="noopener">
+      <span class="em"><svg viewBox="0 0 576 512" fill="#3ddc84"><path d="M420.6 301.9a24 24 0 1 1 24-24 24 24 0 0 1 -24 24m-265.1 0a24 24 0 1 1 24-24 24 24 0 0 1 -24 24m273.7-144.5 47.9-83a10 10 0 1 0 -17.3-10h0l-48.5 84.1a301.3 301.3 0 0 0 -246.6 0L116.2 64.5a10 10 0 1 0 -17.3 10h0l47.9 83C64.5 202.2 8.2 285.6 0 384H576c-8.2-98.4-64.5-181.8-146.9-226.6"/></svg></span>
+      <span class="lab"><b>Android</b><s>Google Play에서 받기</s></span>
+      <span class="arw">다운로드</span>
+      <span class="stk">🫐</span>
+    </a>
+  </div>
+
+  <div class="sect">📱 미리보기</div>
+  <div class="shots">
+    <div class="shot"><img src="shot1.jpg" alt="말랑볼 화면 1" /></div>
+    <div class="shot"><img src="shot2.jpg" alt="말랑볼 화면 2" loading="lazy" /></div>
+    <div class="shot"><img src="shot3.jpg" alt="말랑볼 화면 3" loading="lazy" /></div>
+    <div class="shot"><img src="shot4.jpg" alt="말랑볼 화면 4" loading="lazy" /></div>
+    <div class="shot"><img src="shot5.jpg" alt="말랑볼 화면 5" loading="lazy" /></div>
+  </div>
+
+  <div class="gift">
+    <h3>🎟️ 이벤트 코드를 받았다면</h3>
+    앱 설치 → 홈 맨 위 🎁 → <b>코드 입력</b>에 코드를 넣고 <b>받기</b>!<br />
+    예) <code>PONGBB</code> → 블루베리 요거트 슬라임이 보관함에 쏙 🫐
+  </div>
+
+  <div class="info">
+    <h3>말랑볼은?</h3>
+    진짜 말랑이처럼 눌리고 늘어나는 촉감, 왁뿌볼은 톡 하고 깨지고, 슬라임은 쭉 늘어나요.<br />
+    소리와 진동까지 함께라 보기만 해도, 만지기만 해도 힐링 ✨
+  </div>
+
+  <div class="foot">© MAYACREW · <a href="https://d1unglb827pehs.cloudfront.net/privacy" rel="noopener">개인정보처리방침</a></div>
+</div>
+
+<script>
+const CONFIG = { iosAppId:'6804524644', androidPkg:'com.mallangball.app', appleProviderId:'', defaultSource:'instagram', campaign:'bio_link' };
+const src = (new URLSearchParams(location.search).get('src') || CONFIG.defaultSource).replace(/[^a-z0-9_-]/gi,'').slice(0,20) || 'direct';
+function iosUrl(){ const p=new URLSearchParams(); if(CONFIG.appleProviderId)p.set('pt',CONFIG.appleProviderId); p.set('ct',(src+'_'+CONFIG.campaign).slice(0,40)); p.set('mt','8'); return `https://apps.apple.com/app/id${CONFIG.iosAppId}?${p}`; }
+function andUrl(){ const referrer=`utm_source=${src}&utm_medium=bio&utm_campaign=${CONFIG.campaign}`; return `https://play.google.com/store/apps/details?id=${CONFIG.androidPkg}&referrer=${encodeURIComponent(referrer)}`; }
+document.getElementById('btn-ios').href = iosUrl();
+document.getElementById('btn-and').href = andUrl();
+// 영상: 화면에 보이는 것만 재생 (가로 스크롤 카드 2개)
+const vids=[...document.querySelectorAll('.vid video')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) e.target.play().catch(()=>{}); else e.target.pause(); }),{threshold:.6});
+vids.forEach(v=>io.observe(v));
+</script>
+</body>
+</html>
