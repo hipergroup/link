@@ -120,12 +120,11 @@ body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR','Malgun Gothi
 </div>
 
 <script>
-const CONFIG = { iosAppId:'6804524644', androidPkg:'com.mallangball.app', appleProviderId:'', defaultSource:'instagram', campaign:'bio_link' };
-const src = (new URLSearchParams(location.search).get('src') || CONFIG.defaultSource).replace(/[^a-z0-9_-]/gi,'').slice(0,20) || 'direct';
-function iosUrl(){ const p=new URLSearchParams(); if(CONFIG.appleProviderId)p.set('pt',CONFIG.appleProviderId); p.set('ct',(src+'_'+CONFIG.campaign).slice(0,40)); p.set('mt','8'); return `https://apps.apple.com/app/id${CONFIG.iosAppId}?${p}`; }
-function andUrl(){ const referrer=`utm_source=${src}&utm_medium=bio&utm_campaign=${CONFIG.campaign}`; return `https://play.google.com/store/apps/details?id=${CONFIG.androidPkg}&referrer=${encodeURIComponent(referrer)}`; }
-document.getElementById('btn-ios').href = iosUrl();
-document.getElementById('btn-and').href = andUrl();
+// 다운로드는 mallangball.com/get(스마트 링크)을 거친다 — 기기별 스토어 자동 이동 + GA4·Play 획득 보고서에 "인스타 bio" 로 집계 (2026-10-08).
+const src = (new URLSearchParams(location.search).get('src') || 'instagram').replace(/[^a-z0-9_-]/gi,'').slice(0,20) || 'instagram';
+const GET = `https://mallangball.com/get?utm_source=${src}&utm_medium=social&utm_campaign=bio`;
+document.getElementById('btn-ios').href = GET + '&btn=ios';
+document.getElementById('btn-and').href = GET + '&btn=android';
 // 영상: 화면에 보이는 것만 재생 (가로 스크롤 카드 2개)
 const vids=[...document.querySelectorAll('.vid video')];
 const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) e.target.play().catch(()=>{}); else e.target.pause(); }),{threshold:.6});
